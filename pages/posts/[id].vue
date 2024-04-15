@@ -4,7 +4,7 @@
   const { data } = useLazyFetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
     key: `post-${id}`,
     default() {
-      return posts.value.find(post => post.id === id)
+      return posts.value.find((post: any) => post.id === id)
     }
   })
 </script>

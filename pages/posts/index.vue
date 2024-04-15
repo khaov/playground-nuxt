@@ -3,16 +3,18 @@
 </script>
 
 <template>
-  <ul>
+  <h1>Лента постов</h1>
+  <ul v-if="posts">
     <li v-for="post in posts">
       <UCard>
-        <NuxtLink :to="`/posts/${post['id']}`">
-          <h3>{{ post['title'] }}</h3>
+        <NuxtLink :to="`/posts/${post.id}`">
+          <h3>{{ post.title }}</h3>
           <p>
-            {{ post['body'] }}
+            {{ post.body }}
           </p>
         </NuxtLink>
       </UCard>
     </li>
   </ul>
+  <p v-else>Ошибка закгрузки данных</p>
 </template>
