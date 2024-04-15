@@ -10,8 +10,8 @@
 </script>
 
 <template>
-    <h3>{{ data['title'] }}</h3>
+    <h3>{{ data.title }}</h3>
     <p>
-      {{ data['body'] }}
+      {{ data.body }}
     </p>
 </template>
