@@ -7,23 +7,12 @@
   }>()
 </script> -->
 
-<script>
-  export default {
-    props: {
-      id: {
-        id: String,
-        required: true
-      },
-      title: {
-        type: String,
-        required: true
-      },
-      body: {
-        type: String,
-        required: true
-      }
-    }
-  }
+<script setup>
+  defineProps({
+    id: { type: Number, required: true },
+    title: { type: String, required: true},
+    body: { type: String, required: true }
+  })
 </script>
 
 <template>
