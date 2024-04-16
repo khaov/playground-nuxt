@@ -1,10 +1,29 @@
 
-<script setup lang="ts">
+<!-- <script setup lang="ts">
   defineProps<{
-    id?: string
-    title?: string
-    body?: string
+    id: string
+    title: string
+    body: string
   }>()
+</script> -->
+
+<script>
+  export default {
+    props: {
+      id: {
+        id: String,
+        required: true
+      },
+      title: {
+        type: String,
+        required: true
+      },
+      body: {
+        type: String,
+        required: true
+      }
+    }
+  }
 </script>
 
 <template>

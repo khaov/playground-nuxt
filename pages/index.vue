@@ -7,9 +7,9 @@
   <ul v-if="posts">
     <li v-for="post in posts.slice(0, 4)" :key="post.id">
       <Card
-        :id=post.id
-        :title=post.title
-        :body=post.body
+        :id="post.id"
+        :title="post.title"
+        :body="post.body"
       />
     </li>
   </ul>
