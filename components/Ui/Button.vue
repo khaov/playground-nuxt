@@ -3,6 +3,9 @@
     defineProps<{
       color: string
       size: string
+      href?: string
+      target?: string
+      type?: string
     }>(),
     {
       color: "default",
@@ -12,20 +15,29 @@
 </script>
 
 <template>
-  <button
-    :class="`button button--color--${color} button--size--${size}`"
+  <component
+    :is="href ? 'a' : 'button'"
+    class="button"
+    :class="`button--color--${color} button--size--${size}`"
+    :href="href"
+    :target="target"
+    :type="type"
   >
     <slot/>
-  </button>
+  </component>
 </template>
 
 <style>
   .button {
     display: block;
-    min-width: 250px;
+    width: 100%;
+    max-width: 250px;
     border: 0;
     border-radius: 20px;
     color: white;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
   }
 
   .button--color--default {

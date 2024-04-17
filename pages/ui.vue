@@ -49,6 +49,18 @@
       <UiButton
         :color="color"
         :size="size"
+        type="button"
+      >
+        {{ title }}
+      </UiButton>
+    </div>
+
+    <div class="ui-component">
+      <UiButton
+        :color="color"
+        :size="size"
+        href="/"
+        target="_blank"
       >
         {{ title }}
       </UiButton>
@@ -65,5 +77,9 @@
   }
   .form-label {
     display: block;
+  }
+
+  .ui-component {
+    margin: 20px 0;
   }
 </style>
