@@ -1,8 +1,7 @@
-<script setup>
-  import { ref } from 'vue'
-
-  const color = ref('')
-  const size = ref('')
+<script setup lang="ts">
+  const color = ref<string>()
+  const size = ref<string>()
+  const title = ref<string>()
 </script>
 
 <template>
@@ -11,68 +10,60 @@
   <section>
     <h2>Buttons</h2>
 
-    <div class="ui-controls">
-      <div>
-        <h3>Color: {{ color }}</h3>
+    <form class="form" action="#">
+      <fieldset class="form-controls">
+        <div>
+          <label class="form-label">Color: {{ color }}</label>
 
-        <select v-model="color">
-          <option disabled value="">Please select color</option>
-          <option>primary</option>
-          <option>secondary</option>
-          <option>warning</option>
-          <option>error</option>
-          <option>success</option>
-        </select>
-      </div>
-      <div>
-        <h3>Size: {{ size }}</h3>
+          <select v-model="color">
+            <option disabled value="">Please select color</option>
+            <option>primary</option>
+            <option>secondary</option>
+            <option>warning</option>
+            <option>error</option>
+            <option>success</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label">Size: {{ size }}</label>
 
-        <select v-model="size">
-          <option disabled value="">Please select size</option>
-          <option>2xs</option>
-          <option>xs</option>
-          <option>sm</option>
-          <option>md</option>
-          <option>lg</option>
-          <option>xl</option>
-        </select>
-      </div>
-    </div>
+          <select v-model="size">
+            <option disabled value="">Please select size</option>
+            <option>2xs</option>
+            <option>xs</option>
+            <option>sm</option>
+            <option>md</option>
+            <option>lg</option>
+            <option>xl</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label">Title:</label>
+
+          <input type="text" v-model="title">
+        </div>
+      </fieldset>
+    </form>
 
     <div class="ui-component">
       <UiButton
         :color="color"
         :size="size"
-      />
+      >
+        {{ title }}
+      </UiButton>
     </div>
   </section>
 </template>
 
 <style>
-  .ui-controls {
+  .form-controls {
     display: flex;
     margin: 20px 0;
+    padding: 0;
+    border: 0;
   }
-
-  .button {
+  .form-label {
     display: block;
-    min-width: 250px;
-    padding: 10px;
-    background-color: gray;
-    border-radius: 20px;
-    color: white;
   }
-
- .button--primary {background-color: purple;}
- .button--secondary {background-color: navy;}
- .button--warning {background-color: orange;}
- .button--error {background-color: red;}
- .button--success {background-color: green;}
-
- .button--2xs {padding:0 20px;}
- .button--xs {padding:4px 20px;}
- .button--sm {padding:6px 20px;}
- .button--md {padding:10px 20px;}
- .button--lg {padding:12px 20px;}
- .button--xl {padding:14px 20px;}
 </style>
