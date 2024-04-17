@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  withDefaults(
+  const props = withDefaults(
     defineProps<{
       color: string
       size: string
@@ -12,13 +12,18 @@
       size: "default"
     },
   );
+
+  const buttonStyles = reactive({
+    [`button--color--${props.color}`]: Boolean(props.color),
+    [`button--size--${props.size}`]: Boolean(props.size),
+  });
 </script>
 
 <template>
   <component
     :is="href ? 'a' : 'button'"
     class="button"
-    :class="`button--color--${color} button--size--${size}`"
+    :class="buttonStyles"
     :href="href"
     :target="target"
     :type="type"
