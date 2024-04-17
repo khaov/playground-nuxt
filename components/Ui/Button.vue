@@ -1,11 +1,13 @@
 <script setup lang="ts">
+  defineOptions({
+    inheritAttrs: false
+  })
+
   const props = withDefaults(
     defineProps<{
       color: string
       size: string
       href?: string
-      target?: string
-      type?: string
     }>(),
     {
       color: "default",
@@ -13,10 +15,12 @@
     },
   );
 
-  const buttonStyles = reactive({
+  const attrs = useAttrs();
+
+  const buttonStyles = computed(() => ({
     [`button--color--${props.color}`]: Boolean(props.color),
     [`button--size--${props.size}`]: Boolean(props.size),
-  });
+  }));
 </script>
 
 <template>
@@ -25,8 +29,7 @@
     class="button"
     :class="buttonStyles"
     :href="href"
-    :target="target"
-    :type="type"
+    v-bind="attrs"
   >
     <slot/>
   </component>
