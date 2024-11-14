@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@nuxt/ui": "^2.15.1",
-    "nuxt": "^3.11.2",
+    "nuxt": "^3.14.159",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
-  }
+  },
+  "packageManager": "pnpm@8.15.6+sha1.8105075ad0aa306138be128c017e9c41e28ecffa"
 }
